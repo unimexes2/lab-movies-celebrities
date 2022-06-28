@@ -38,7 +38,7 @@ router.get('/movies/create', (req, res, next) => {
        
       });
     })
-
+   
 
     router.get('/movies', (req, res, next) => {
         Movie.find()
@@ -54,7 +54,45 @@ router.get('/movies/create', (req, res, next) => {
     
         })
        
+        router.get( `/movies/:id`, (req, res, next) => {
+            Movie.findById(req.params.id)
+            .populate("cast")
+            .then((response) => {
+              console.log(response,"response");
+              res.render("./movies/movie-details",{ response });
+            })
+            .catch((err) => {
+                debugger
+              next(err);
+            });
+        
+            })
 
+            router.post('/movies/:id/delete', (req, res, next) => {
+               
+              Movie.findByIdAndDelete(req.params.id)
+               
+                .then((response) => {
+                  
+                 Movie.find()
+                  .then((response) => {
+                    console.log(response,"drone response");
+                    res.render("./movies/movies.hbs", { response });
+                  })
+                  .catch((err) => {
+                    next(err);
+                })
+                .catch((err) => {
+                  next(err);
+                });})
+              
+              
+              });
+           
+
+
+
+              
 
 
 module.exports = router;

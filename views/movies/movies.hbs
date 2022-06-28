@@ -6,12 +6,19 @@
 
   {{#each response}}
 
-  <h4>{{this.title}}</h4>
+  <a href= "/movies/{{this._id}}"><h4>{{this.title}}</h4></a>
   <h4>{{this.genre}}</h4>
   <h4>{{this.plot}}</h4>
    <h4>{{this.cast.title}}</h4>
   
+<br>
+ <form action="/movies/{{this._id}}/delete" method="post" >
+   
+   <input type="submit" value="Delete">
 
+   
+   </form>
+   <br>
  
 
 

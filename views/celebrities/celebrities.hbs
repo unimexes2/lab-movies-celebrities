@@ -1,0 +1,25 @@
+<h2>Celeb list</h2>
+
+
+<div>
+
+
+  {{#each response}}
+
+  <h4>{{this.name}}</h4>
+  <h4>{{this.occupation}}</h4>
+  <h4>{{this.catchPhrase}}</h4>
+  <button><a href="/drones/{{this._id}}/edit">Edit</a></button>
+   
+   
+   <form action="/drones/{{this._id}}/delete" method="post" >
+   
+   <input type="submit" value="Delete">
+  
+ </form>
+ 
+
+
+  {{/each}}
+
+</div>

@@ -1,13 +1,13 @@
 const router = require("express").Router();
 
 const Celeb = require("../models/Celebrity.model");
-
-router.get('/celebrities/new-celebrity ', (req, res, next) => {
+const Movie=require("../models/Movie-model")
+router.get('/celebrities/new-celebrity', (req, res, next) => {
    
   res.render("./celebrities/new-celebrity.hbs");
   })
  
-  router.post('/celebrities/new-celebrity ', (req, res, next) => {
+  router.post('/celebrities/new-celebrity', (req, res, next) => {
     debugger
    Celeb.create(req.body)
     .then((response) => {
@@ -20,7 +20,7 @@ router.get('/celebrities/new-celebrity ', (req, res, next) => {
   })
   
   
-  router.get('/celebrities/', (req, res, next) => {
+  router.get('/celebrities', (req, res, next) => {
     Celeb.find()
     .then((response) => {
       console.log(response,"response");

@@ -1,4 +1,15 @@
 <h2>Update Movie</h2>
+ <h4>{{response.title}}</h4>
+    <h4>{{response.genre}}</h4>
+    <h4>{{response.plot}}</h4>
+ <h3>Artist info</h3>
+    <h4>{{response.cast.title}}</h4>
+ <h4>{{response.cast.occupation}}</h4>
+ <h4>{{response.cast.frase}}</h4>
+
+
+
+
 <form action="/movies/{{response._id}}/edit" method="post">
 
     <label for="title">Name of Movie</label>
@@ -19,7 +30,7 @@
             <option value={{this._id}}>{{this.title}}</option>
             {{/each}}
         </select>
-        
+
         <button type="submit" form="form1" value="Submit">Submit</button>
 
 </form>

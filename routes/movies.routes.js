@@ -53,6 +53,21 @@ router.get('/movies/create', (req, res, next) => {
         });
     
         })
+
+        router.get( `/movie-details/:id`, (req, res, next) => {
+            Movie.findById(req.params.id)
+            .populate("cast")
+            .then((response) => {
+              console.log(response,"response");
+              res.render("./movies/movie-details",{ response });
+            })
+            .catch((err) => {
+                debugger
+              next(err);
+            });
+        
+            })
+
        
         router.get( `/movie-detail/:id/edit`, (req, res, next) => {
             Movie.findById(req.params.id)
@@ -77,7 +92,7 @@ router.get('/movies/create', (req, res, next) => {
                   
                   Movie.find()
                   .then((response) => {
-                    console.log(response,"drone response");
+                    console.log(response,"response");
                     res.render("./movies/movies.hbs", { response });
                   })
                   .catch((err) => {

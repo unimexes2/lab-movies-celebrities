@@ -7,3 +7,22 @@
  <h4>{{response.cast.occupation}}</h4>
  <h4>{{response.cast.frase}}</h4>
 </div>
+<br>
+
+
+
+
+ <form action="/movies/{{._id}}/delete" method="post" >
+   
+   <input type="submit" value="Delete">
+
+   
+   </form>
+   <br>
+   <form action="/movie/{{._id}}/edit" method="get" >
+   
+   <input type="submit" value="edit">
+
+   
+   </form>
+ 
